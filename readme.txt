@@ -1,3 +1,5 @@
+https://wordpress.org/plugins/custom-sub-menus/
+
 === Plugin Name ===
 Contributors: gataf
 Tags: custom menus, sub menus
