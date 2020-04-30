@@ -24,10 +24,10 @@
 
 	$siteurl = get_option('siteurl');
 
-	define('LGA_FOLDER', dirname(plugin_basename(__FILE__)));
-	define('LGA_URL', $siteurl.'/wp-content/plugins/' . LGA_FOLDER);
-	define('LGA_FILE_PATH', dirname(__FILE__));
-	define('LGA_DIR_NAME', basename(LGA_FILE_PATH));
+	define('SRS_FOLDER', dirname(plugin_basename(__FILE__)));
+	define('SRS_URL', $siteurl.'/wp-content/plugins/' . SRS_FOLDER);
+	define('SRS_FILE_PATH', dirname(__FILE__));
+	define('SRS_DIR_NAME', basename(SRS_FILE_PATH));
 
 
 	// ==================== Adding Metabox to Page/Post ====================
@@ -180,8 +180,8 @@
 
 	}
 
-	register_activation_hook(__FILE__,'lga_install');
-	register_deactivation_hook(__FILE__ , 'lga_uninstall' );
+	register_activation_hook(__FILE__,'srs_start_stop');
+	register_deactivation_hook(__FILE__ , 'srs_start_stop' );
 
 	// ==================== Filters and actions ====================
 	add_action( 'add_meta_boxes', 'meta_box_menu_per_page' ); // Adding the meta box to edit page
@@ -196,13 +196,8 @@
 	add_action( 'wp_ajax_nopriv_custom_menu_save_bulk_edit', 'custom_menu_save_bulk_edit' ); // Actually saving the ajax AND WORKING!
 	add_shortcode( 'the_custom_menu', 'custom_menu_shortcode' ); // Creating shortcode to be placed in widget to show actual menu
 
-	// Install
-	function lga_install() {
-	    global $wpdb;
-	}
-
-	// Uninstall
-	function lga_uninstall() {
+	// Install / Uninstall
+	function srs_start_stop() {
 	    global $wpdb;
 	}
 ?>
